@@ -1,9 +1,15 @@
+
+
 @font-face {
   font-family: "Coda";
-  src: url("https://github.com/Emerica/cfsimu/raw/master/css/fonts/coda.ttf");
+  src: url("css/fonts/coda.woff") format("woff"),
+  url("css/fonts/coda.ttf") format("truetype"),
 }
+
 body {
-  font-family: "Coda";
+  font-family: 'Coda', Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 
 #main {
