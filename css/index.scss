@@ -43,33 +43,6 @@ body {
   overflow: auto;
 }
 
-/*
- * off Canvas sidebar
- * --------------------------------------------------
- */
-@media screen and (max-width: 768px) {
-  .row-offcanvas {
-    position: relative;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-    width: calc(100% + 320px);
-  }
-
-  .row-offcanvas-left {
-    left: -320px;
-  }
-
-  .row-offcanvas-left.active {
-    left: 0;
-  }
-
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-  }
-}
-
 ::-webkit-scrollbar {
   width: 15px;
 }
