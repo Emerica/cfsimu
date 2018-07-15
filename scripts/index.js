@@ -215,6 +215,7 @@ var Board = (function() {
             in_link: 0,
             out_link: 0,
         };
+      
         for (var i = 0; i < this.links.length; i++) {
             var link = this.links[i];
             if (link.from.id == id) {
@@ -629,11 +630,14 @@ Array.prototype.shuffle = function() {
     return this;
 }
 
+
+
 var Preset = (function() {
     function Preset() {
     }
     Preset.prototype.preset = function(name, target, color, generate_id) {
-        var rcolor = color == 'ENL' ? 'RES' : 'ENL';
+      
+      var rcolor = $("#faction").val() == 'ENL' ? 'RES' : 'ENL';
         if (name == 'basic1' || name == 'basic2') {
             var a = generate_id();
             var b = generate_id();
@@ -947,17 +951,46 @@ var Preset = (function() {
 })();
 
 $(function() {
+    var faction = 'RES';
     var canvas = $('#canvas');
     var ctx = canvas[0].getContext('2d');
     var clear = function() {
+        var w = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+      
+
+        var h = window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+        ctx.canvas.width = w-390;
+				ctx.canvas.height = h-110;
         ctx.fillStyle = '#000000';
-        ctx.fillRect(0, 0, canvas.width(), canvas.height());
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = 'blue';
+				ctx.lineWidth = '1';
+				ctx.strokeRect(0, 0, canvas.width, canvas.height);
     };
     clear();
     var board = new Board();
     var command_list = new CommandList();
     var selected = null;
     var preset = new Preset();
+
+    $(window).on('resize',function() {
+        var w = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+
+        var h = window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+        ctx.canvas.width = w-390;
+				ctx.canvas.height = h-110;
+        update();
+
+      }
+    );
 
     $(document).on('click', '#command-list > a', function(e) {
         e.preventDefault();
@@ -975,6 +1008,8 @@ $(function() {
         update_portal_info();
         update_command_operators();
     };
+  
+  
     var update_share_link = function() {
         var str = command_list.to_string();
         var loc = window.location;
@@ -1029,12 +1064,23 @@ $(function() {
             return false;
         }
     });
+  
+   $(document).on('change', '#faction', function(e) {
+        faction = ($(this).val()=='RES' ? "RES" : "ENL");
+        $('#faction').selectpicker('setStyle', 'btn-primary', 'remove');
+        $('#faction').selectpicker('setStyle', 'btn-success', 'remove');
+        $('#faction').selectpicker('setStyle',   (faction=='RES' ? 'btn-primary' : 'btn-success'), 'add');
+    });
+  
+  
     $(document).on('change', '#portal-list .portal-name', function(e) {
         var text = $(this).val();
         var id = parseInt($(this).closest('li').attr('data-id'), 10);
         command_list.change_name(id, text);
         update();
     });
+    
+
     $(document).on('click', '#portal-list button.close[type="button"]', function(e) {
         var li = $(this).closest('li');
         command_list.remove_portal(parseInt(li.attr('data-id')));
@@ -1190,7 +1236,7 @@ $(function() {
         if (hit == null) {
             if (selected == null) {
                 var portal_id = command_list.incr_portal_id();
-                command_list.locate_portal(portal_id, portal_id.toString(10), Math.floor(p.x), Math.floor(p.y), 'ENL');
+                command_list.locate_portal(portal_id, portal_id.toString(10), Math.floor(p.x), Math.floor(p.y), faction);
             } else {
                 selected = null;
             }
