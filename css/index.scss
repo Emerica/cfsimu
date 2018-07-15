@@ -1,15 +1,9 @@
-
-
 @font-face {
   font-family: "Coda";
-  src: url("css/fonts/coda.woff") format("woff"),
-  url("css/fonts/coda.ttf") format("truetype"),
+  src: url("https://github.com/Emerica/cfsimu/raw/master/css/fonts/coda.ttf");
 }
-
 body {
-  font-family: 'Coda', Arial, sans-serif;
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Coda";
 }
 
 #main {
@@ -74,4 +68,22 @@ body {
     position: absolute;
     top: 0;
   }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+::-webkit-scrollbar-button {
+  background: #666;
+  height: 15px;
+  border-radius: 50%;
 }
