@@ -2,45 +2,20 @@
   font-family: "Coda";
   src: url("https://github.com/Emerica/cfsimu/raw/master/css/fonts/coda.ttf");
 }
+
 body {
   font-family: "Coda";
+  height:100%;
 }
 
 #main {
-  margin-top: 0px;
+  margin: 10px;
 }
 
-#portal-list {
-  height: 100%;
-}
-#command-list {
-  height: 100%;
-}
-
-.preset {
-  text-align: left;
-}
-
-#prestop {
-  margin-top: 10px;
-}
-
-.command-button {
-  height: 5;
-}
-#sidebar {
-  width: inherit;
-  min-width: 320px;
-  max-width: 320px;
-  float: left;
-
-  position: relative;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-#main {
-  height: 100%;
+#full {
+  height: 99%;
   overflow: auto;
+  border:1px solid purple;
 }
 
 ::-webkit-scrollbar {
