@@ -964,13 +964,13 @@ $(function() {
         || document.documentElement.clientHeight
         || document.body.clientHeight;
         ctx.canvas.width = w-50;
-				ctx.canvas.height = h-200;
+	ctx.canvas.height = h-210;
         ctx.scale(scale,scale);
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.strokeStyle = 'blue';
-				ctx.lineWidth = '1';
-				ctx.strokeRect(0, 0, canvas.width, canvas.height);
+	ctx.lineWidth = '1';
+	ctx.strokeRect(0, 0, canvas.width, canvas.height);
     };
     clear();
     var board = new Board();
@@ -987,7 +987,7 @@ $(function() {
         || document.documentElement.clientHeight
         || document.body.clientHeight;
         ctx.canvas.width = w-50;
-				ctx.canvas.height = h-200;
+	ctx.canvas.height = h-210;
         update();
 
       }
