@@ -198,8 +198,8 @@ var Board = (function() {
     Board.prototype.hit_portal = function(px, py) {
         for (var id in this.portals) {
             var portal = this.portals[id];
-            if (portal.x - CF_PORTAL_SIZE / 1.5 <= px && px <= portal.x + CF_PORTAL_SIZE / 1.5 &&
-                portal.y - CF_PORTAL_SIZE / 1.5 <= py && py <= portal.y + CF_PORTAL_SIZE / 1.5) {
+            if (portal.x - CF_PORTAL_SIZE / 1.2 <= px && px <= portal.x + CF_PORTAL_SIZE / 1.2 &&
+                portal.y - CF_PORTAL_SIZE / 1.2 <= py && py <= portal.y + CF_PORTAL_SIZE / 1.2) {
                 return portal.id;
             }
         }
