@@ -29,11 +29,14 @@
   </style>
 </head>
 <body>
+  
+  <div id="full">
+  
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img src="http://cr0ybot.github.io/ingress-logos/resistance_hexagon_thumb.png" alt="logo" style="width: 35px;padding-bottom: 7px;">
+          <img src="https://cr0ybot.github.io/ingress-logos/resistance_hexagon_thumb.png" alt="logo" style="width: 35px;padding-bottom: 7px;">
         </a>
         <a class="navbar-brand-text" href="#" style="margin-top: 10px;margin-left: -10px;/* padding-top: 20px; */color:  #FFF;text-decoration: none;font-size: 1.45em;">FIELD SIMULATOR</a>
       </div>
@@ -88,35 +91,23 @@
       </div>
     </div>
   </nav>
-  <div id="sidebar" class="sidebar-offcanvas">
+  
+  
+  <div id="main" role="main">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#home">Portals</a>
+        <a class="nav-link active" data-toggle="tab" href="#home">Simulator</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#menu1">Command List</a>
+        <a class="nav-link " data-toggle="tab" href="#menu1">Portal List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu2">Command List</a>
       </li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane container active" id="home">
-        <p id="portal-info" class="text-primary"># of Fields:
-          <span class="cf">10</span>(<span class="current-cf">5</span>), # of Links:
-          <span class="link">15</span>(<span class="current-link">10</span>)
-        </p>
-        <div class="form-inline">
-          <ul id="portal-list" class="list-group">
-          </ul>
-        </div>
-
-      </div>
-      <div class="tab-pane container fade" id="menu1">
-        <div id="command-list" class="list-group"></div>
-      </div>
-    </div>
-  </div>
-  <div id="main" role="main">
-    <div class="col-md-12">
-      <script src="https://use.fontawesome.com/ae8d15b2f5.js"></script>
+      <div class="tab-pane active" id="home">
+        <div class="col-md-12">
       <div class="container">
         <div class="row">
           <div class="col-xs-offset 1 col-xs-11 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
@@ -147,13 +138,13 @@
                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
                    
                   <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> 50%
+                    <input type="radio" name="options" id="zoom1" autocomplete="off" label="0.5"> 50%
                   </label>
                   <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> 100%
+                    <input type="radio" name="options" id="zoom2" autocomplete="off" checked> 100%
                   </label>
                   <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> 150%
+                    <input type="radio" name="options" id="zoom3" autocomplete="off"> 150%
                   </label>
                 </div>
 
@@ -163,10 +154,35 @@
           </div>
         </div>
       </div>
-      <canvas  style='margin-top:2px;outline: grey 1px dotted;' id="canvas"></canvas>
+      <canvas width="100%" height="100%" style='margin-top:2px;outline: grey 1px dotted;' id="canvas"></canvas>
      
     </div>
+      </div>
+      <div class="tab-pane fade" id="menu1">
+        <p id="portal-info" class="text-primary"># of Fields:
+          <span class="cf">10</span>(<span class="current-cf">5</span>), # of Links:
+          <span class="link">15</span>(<span class="current-link">10</span>)
+        </p>
+        <div class="form-inline">
+          <ul id="portal-list" class="list-group">
+          </ul>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="menu2">
+        <div id="command-list" class="list-group"></div>
+      </div>
+      
+      
+      
+    </div>
   </div>
+    
+    
+  
+    
+  </div>
+     </div>
   <script>
   
 //https://developer.snapappointments.com/bootstrap-select
