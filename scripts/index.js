@@ -1032,7 +1032,7 @@ $(function() {
     var update_share_link = function() {
         var str = command_list.to_string();
         var loc = window.location;
-        $('#sharetext').val(loc.protocol + '//' + 'sim.pxn.ca?p=' + str + loc.hash);
+        $('#sharetext').val('http://sim.pxn.ca?p=' + str + loc.hash);
     };
     var update_portal_info = function() {
         var info = command_list.get_info();
