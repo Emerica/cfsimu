@@ -1031,7 +1031,7 @@ $(function() {
   
     var update_share_link = function() {
         var str = command_list.to_string();
-        var loc = window.location;
+        var loc = 'http://sim.pxn.ca/';//window.location;
         $('#share').val(loc.protocol + '//' + loc.host + loc.pathname + '?p=' + str + loc.hash);
         ///$('#share').html(loc.protocol + '//' + loc.host + loc.pathname + '?p=' + str + loc.hash);
     };
