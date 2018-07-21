@@ -954,17 +954,18 @@ $(function() {
     var faction = 'RES';
     var canvas = $('#canvas');
     var ctx = canvas[0].getContext('2d');
+    var scale = 1;
     var clear = function() {
         var w = window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth;
-      
 
         var h = window.innerHeight
         || document.documentElement.clientHeight
         || document.body.clientHeight;
-        ctx.canvas.width = w-390;
-				ctx.canvas.height = h-110;
+        ctx.canvas.width = w-50;
+				ctx.canvas.height = h-200;
+        ctx.scale(scale,scale);
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.strokeStyle = 'blue';
@@ -985,8 +986,8 @@ $(function() {
         var h = window.innerHeight
         || document.documentElement.clientHeight
         || document.body.clientHeight;
-        ctx.canvas.width = w-390;
-				ctx.canvas.height = h-110;
+        ctx.canvas.width = w-50;
+				ctx.canvas.height = h-200;
         update();
 
       }
@@ -998,11 +999,28 @@ $(function() {
         command_list.set_current(parseInt(index));
         update();
     });
+    $(document).on('change', '#zoom1,#zoom2,#zoom3', function(e) {
+      //I'd prefer this to work with a slider but test for now.
+      if(e.target.id == "zoom1"){
+        alert(e.target.id);
+        scale=0.5;
+      }else if(e.target.id =="zoom2"){
+        alert(e.target.id);
+        scale=1;
+      }else if(e.target.id == "zoom3"){
+        alert(e.target.id);
+        scale=1.5;
+      }else{
+        scale=1;
+      }
+      update();
 
+    });
     var update = function() {
         command_list.apply(board);
         update_command_list();
         clear();
+        //ctx.scale(scale,scale);
         board.draw(ctx, selected, $("#view-arrow").prop('checked'));
         update_share_link();
         update_portal_info();
