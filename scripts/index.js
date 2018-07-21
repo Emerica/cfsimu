@@ -198,8 +198,8 @@ var Board = (function() {
     Board.prototype.hit_portal = function(px, py) {
         for (var id in this.portals) {
             var portal = this.portals[id];
-            if (portal.x - CF_PORTAL_SIZE / 1.2 <= px && px <= portal.x + CF_PORTAL_SIZE / 1.2 &&
-                portal.y - CF_PORTAL_SIZE / 1.2 <= py && py <= portal.y + CF_PORTAL_SIZE / 1.2) {
+            if (portal.x - CF_PORTAL_SIZE / 2 <= px && px <= portal.x + CF_PORTAL_SIZE / 2 &&
+                portal.y - CF_PORTAL_SIZE / 2 <= py && py <= portal.y + CF_PORTAL_SIZE / 2) {
                 return portal.id;
             }
         }
@@ -952,6 +952,7 @@ var Preset = (function() {
 
 $(function() {
     var faction = 'RES';
+    var showdir = 1;
     var canvas = $('#canvas');
     var ctx = canvas[0].getContext('2d');
     var scale = 1;
@@ -964,13 +965,13 @@ $(function() {
         || document.documentElement.clientHeight
         || document.body.clientHeight;
         ctx.canvas.width = w-50;
-	ctx.canvas.height = h-210;
+				ctx.canvas.height = h-200;
         ctx.scale(scale,scale);
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.strokeStyle = 'blue';
-	ctx.lineWidth = '1';
-	ctx.strokeRect(0, 0, canvas.width, canvas.height);
+				ctx.lineWidth = '1';
+				ctx.strokeRect(0, 0, canvas.width, canvas.height);
     };
     clear();
     var board = new Board();
@@ -987,7 +988,7 @@ $(function() {
         || document.documentElement.clientHeight
         || document.body.clientHeight;
         ctx.canvas.width = w-50;
-	ctx.canvas.height = h-210;
+				ctx.canvas.height = h-200;
         update();
 
       }
@@ -1021,7 +1022,7 @@ $(function() {
         update_command_list();
         clear();
         //ctx.scale(scale,scale);
-        board.draw(ctx, selected, $("#view-arrow").prop('checked'));
+        board.draw(ctx, selected, showdir);
         update_share_link();
         update_portal_info();
         update_command_operators();
@@ -1128,7 +1129,8 @@ $(function() {
         preset.preset($(this).attr('data-name'), command_list, 'ENL', function() { return command_list.incr_portal_id(); });
         update();
     });
-    $('#view-arrow').change(function(e) {
+    $('#view-arrow').click(function(e) {
+        showdir=(showdir ? 0 : 1);
         update();
     });
     $('#prev-command').click(function(e) {
