@@ -1032,7 +1032,8 @@ $(function() {
     var update_share_link = function() {
         var str = command_list.to_string();
         var loc = window.location;
-        $('#share').attr('href', loc.protocol + '//' + loc.host + loc.pathname + '?p=' + str + loc.hash);
+        $('#share').val(loc.protocol + '//' + loc.host + loc.pathname + '?p=' + str + loc.hash);
+        ///$('#share').html(loc.protocol + '//' + loc.host + loc.pathname + '?p=' + str + loc.hash);
     };
     var update_portal_info = function() {
         var info = command_list.get_info();
@@ -1061,14 +1062,24 @@ $(function() {
         console.log(current);
         console.log(commands.length);
         if (current == 0) {
-            $('#prev-command').hide();
+            $('#prev-command').removeClass('btn-primary');
+            $('#prev-command').addClass('btn-secondary');
+            $("#prev-command").prop("disabled", true);
         } else {
-            $('#prev-command').show();
+            //$('#prev-command').show();
+            $('#prev-command').removeClass('btn-secondary');
+            $('#prev-command').addClass('btn-primary');
+            $("#prev-command").prop("disabled",false);
         }
         if (current == commands.length) {
-            $('#next-command').hide();
+            $('#next-command').removeClass('btn-primary');
+            $('#next-command').addClass('btn-secondary');
+            $("#next-command").prop("disabled", true);
+ 
         } else {
-            $('#next-command').show();
+            $('#next-command').removeClass('btn-secondary');
+            $('#next-command').addClass('btn-primary');
+            $("#next-command").prop("disabled",false);
         }
     };
     $(document).keydown(function(e){
@@ -1131,6 +1142,9 @@ $(function() {
     });
     $('#view-arrow').click(function(e) {
         showdir=(showdir ? 0 : 1);
+        $('#view-arrow').removeClass('btn-primary');
+        $('#view-arrow').removeClass('btn-secondary');
+        $('#view-arrow').addClass((showdir ? 'btn-primary' : 'btn-secondary'));
         update();
     });
     $('#prev-command').click(function(e) {
