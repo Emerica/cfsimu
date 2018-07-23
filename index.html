@@ -69,25 +69,6 @@
             <li><button type="button" class="dropdown-item preset" data-name="threeway2">Cocktail</button></li>
           </ul>
         </div>
-        <div class="btn-group" role="group" aria-label="Language group" style="padding-right:10px;">
-          <button class="btn btn-secondary btn-sm">Language</button>
-          <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Japanese</a></li>
-            <li class="divider"></li>
-            <li><a class="dropdown-item" href="#">Chinese</a></li>
-            <li class="divider"></li>
-            <li><a class="dropdown-item" href="#">English</a></li>
-          </ul>
-        </div>
-        <div class="btn-group" role="group" aria-label="Help group">
-          <button class="btn btn-warning btn-sm">Help</button>
-          <button class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Source</a></li>
-            <li><a href="#" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-cloud"></span> Share</a></li>
-          </ul>
-        </div>
       </div>
     </div>
   </nav>
@@ -99,10 +80,10 @@
         <a class="nav-link active" data-toggle="tab" href="#home">Simulator</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " data-toggle="tab" href="#menu1">Portal List</a>
+        <a class="nav-link " data-toggle="tab" href="#menu1">Portals</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#menu2">Command List</a>
+        <a class="nav-link" data-toggle="tab" href="#menu2">Log</a>
       </li>
     </ul>
     <div class="tab-content">
@@ -114,27 +95,41 @@
             <div class="btn-toolbar" role="toolbar">
               <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group" role="group">
-                  <button title="Back"  id="prev-command" class="btn btn-secondary" data-original-title="Back"><i class="fa fa-backward fa-lg" aria-hidden="true"></i>&nbsp;</button>
+                  <button title="Back"  id="prev-command" class="btn btn-secondary" data-original-title="Back">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                  </button>
                 </div>
                 <div class="btn-group" role="group">
-                  <button  title="Next" id="next-command" class="btn btn-secondary" data-original-title="Forward"><i class="fa fa-forward fa-lg" aria-hidden="true"></i>&nbsp;</button>
+                  <button  title="Next" id="next-command" class="btn btn-secondary" data-original-title="Forward">
+                    <i class="fa fa-forward" aria-hidden="true"></i>
+                  </button>
                 </div>
                 <div class="btn-group" role="group">
-                  <button title="Flip"  id="flip" class="btn btn-primary" data-original-title="Flip"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i>&nbsp;</button>
+                  <button title="Flip"  id="flip" class="btn btn-primary" data-original-title="Flip">
+                    <i class="fa fa-refresh" aria-hidden="true"></i
+                  </button>
                 </div>
                 <div class="btn-group" role="group">
-                  <button title="Clear Limks"  id="clear-without-portal" class="btn btn-primary" data-original-title="Unlink"><i class="fa fa-unlink fa-lg" aria-hidden="true"></i>&nbsp;</button>
+                  <button title="Clear Limks"  id="clear-without-portal" class="btn btn-primary" data-original-title="Unlink">
+                    <i class="fa fa-unlink" aria-hidden="true"></i>
+                  </button>
                 </div>
                 <div class="btn-group" role="group">
-                  <button title="Clear All"  id="clear" class="btn btn-primary" data-original-title="Clear"><i class="fa fa-trash fa-lg" aria-hidden="true"></i>&nbsp;</button>
+                  <button title="Clear All"  id="clear" class="btn btn-primary" data-original-title="Clear">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
                 </div>
                 <div class="btn-group" role="group">
-                  <button title="Show Link Direction"  id="view-arrow" class="btn btn-primary" data-original-title="Show Direction"><i class="fa fa-angle-double-up fa-lg" aria-hidden="true"></i>&nbsp;</button>
+                  <button title="Show Link Direction"  id="view-arrow" class="btn btn-primary" data-original-title="Show Direction">
+                    <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                  </button>
                 </div>
                 <div class="btn-group" role="group">
-                  <button title="Share" id="clear" class="btn btn-primary" data-original-title="Share" data-toggle="modal" data-target="#shareModal"><i class="fa fa-share fa-lg" ></i>&nbsp;</button>
+                  <button title="Share" id="clear" class="btn btn-primary" data-original-title="Share" data-toggle="modal" data-target="#shareModal">
+                    <i class="fa fa-share" ></i>
+                  </button>
                 </div>
-              </div>
+                </div>
             </div>
           </div>
         </div>
@@ -175,7 +170,7 @@
       <div class="modal-body">
         <p>              
             <input type="text" id="sharetext" value="Text to Copy" style="width:350px;"> 
-            <button id="copyButton" class="btn btn-primary" >Copy</button>
+            <button id="copyButton" class="btn btn-primary" ></button>
         </p>
       </div>
       <div class="modal-footer">
