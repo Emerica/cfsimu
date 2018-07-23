@@ -965,7 +965,7 @@ $(function() {
         || document.documentElement.clientHeight
         || document.body.clientHeight;
         ctx.canvas.width = w-50;
-				ctx.canvas.height = h-200;
+				ctx.canvas.height = h-170;
         ctx.scale(scale,scale);
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -988,7 +988,7 @@ $(function() {
         || document.documentElement.clientHeight
         || document.body.clientHeight;
         ctx.canvas.width = w-50;
-				ctx.canvas.height = h-200;
+				ctx.canvas.height = h-170;
         update();
 
       }
@@ -1032,7 +1032,7 @@ $(function() {
     var update_share_link = function() {
         var str = command_list.to_string();
         var loc = window.location;
-        $('#sharetext').val('http://sim.pxn.ca?p=' + str + loc.hash);
+        $('#sharetext').val(loc.protocol + '//' + 'sim.pxn.ca?p=' + str + loc.hash);
     };
     var update_portal_info = function() {
         var info = command_list.get_info();
