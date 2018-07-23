@@ -2,7 +2,9 @@
   font-family: "Coda";
   src: url("https://github.com/Emerica/cfsimu/raw/master/css/fonts/coda.ttf");
 }
-
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 140px;
+}
 body {
   font-family: "Coda";
   height:100%;
